@@ -30,12 +30,12 @@ public class MenuFrameLoader implements Loader {
         // build & open game frame to the user.
         GameFrame gameFrame = new GameFrame(gameController);
         gameFrame.open();
-        // load & start engine.
-        GameEngine.loadEngine(gameType, gameController);
-        GameEngine.start(gameType, playsFirst);
         // register listeners.
         EventBus.subscribe(SnakeMoveEvent.class, new SnakeMoveListener(gameFrame));
         EventBus.subscribe(GameEndEvent.class, new GameEndListener(gameFrame));
+        // load & start engine.
+        GameEngine.loadEngine(gameType, gameController);
+        GameEngine.start(gameType, playsFirst);
     };
 
     @Override

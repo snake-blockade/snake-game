@@ -4,7 +4,6 @@ import io.zentae.fx.component.FruitComponent;
 import io.zentae.fx.component.ObstacleComponent;
 import io.zentae.fx.component.snake.BodyComponent;
 import io.zentae.fx.component.snake.HeadComponent;
-import io.zentae.fx.component.snake.TailComponent;
 import io.zentae.fx.frame.MenuFrame;
 import io.zentae.game.build.DataPoet;
 import io.zentae.renderer.Renderer;
@@ -29,8 +28,6 @@ public class GameLoader implements Loader {
                 new HeadComponent(location, 40, 40).paintComponent(graphics)));
         Renderer.register('O', ((graphics, location) ->
                 new BodyComponent(location, 40, 40).paintComponent(graphics)));
-        Renderer.register('T', ((graphics, location) ->
-                new TailComponent(location, 40, 40).paintComponent(graphics)));
         Renderer.register('A', ((graphics, location) ->
                 new FruitComponent(location, 40, 40).paintComponent(graphics)));
         Renderer.register('P', ((graphics, location) ->

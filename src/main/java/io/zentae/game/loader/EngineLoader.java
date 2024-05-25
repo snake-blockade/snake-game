@@ -20,7 +20,7 @@ import io.zentae.snake.engine.factory.handler.DefaultHandlerFactory;
 import io.zentae.snake.engine.factory.handler.HandlerFactory;
 import io.zentae.snake.engine.factory.snake.DefaultSnakeFactory;
 import io.zentae.snake.engine.factory.snake.SnakeFactory;
-import io.zentae.snake.engine.handler.GameHandler;
+import io.zentae.snake.engine.handler.MovementHandler;
 import io.zentae.snake.engine.handler.GameType;
 import io.zentae.snake.engine.listener.CollisionListener;
 import io.zentae.snake.engine.listener.SnakeGrowListener;
@@ -52,9 +52,9 @@ public class EngineLoader implements Loader {
         // initialize a new players list.
         List<Player> players = new ArrayList<>();
         // initialize the game handler.
-        GameHandler gameHandler = HANDLER_FACTORY.create(gameType);
+        MovementHandler movementHandler = HANDLER_FACTORY.create(gameType);
         // build the game.
-        Game game = new DefaultGame(gameHandler, arena, players, 4);
+        Game game = new DefaultGame(movementHandler, arena, players, 4);
         // loop through each snake and build a player.
         for(Snake snake : snakes)
             players.add(new DefaultPlayer(new DefaultSnakeController(snake)));
