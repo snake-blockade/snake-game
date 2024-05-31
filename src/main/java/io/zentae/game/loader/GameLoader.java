@@ -19,8 +19,8 @@ public class GameLoader implements Loader {
     public Object[] load(Object... data) {
         // map the data.
         Map<Class<?>, String> map = new HashMap<>();
-        map.put(Fruit.class, "A");
-        map.put(Obstacle.class, "P");
+        map.put(Fruit.class, "apple");
+        map.put(Obstacle.class, "obstacle");
         Translator.register(new DefaultTranslationLayer(40, map));
         // get data.
         Object[] framesData = FRAMES_LOADER.load(data);
