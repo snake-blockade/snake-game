@@ -1,5 +1,6 @@
 package io.zentae.game.loader;
 
+import io.zentae.fx.cache.ImageCache;
 import io.zentae.fx.frame.GameFrame;
 import io.zentae.fx.frame.MenuFrame;
 import io.zentae.fx.listener.PlayerButtonListener;
@@ -27,8 +28,10 @@ public class MenuFrameLoader implements Loader {
     private final BiConsumer<GameType, Boolean> actionConsumer = (gameType, playsFirst) -> {
         // get the game controller.
         GameController gameController = DataPoet.cast(ENGINE_LOADER.load(gameType)[0], GameController.class);
+        // create a new image cache.
+        ImageCache imageCache = new ImageCache();
         // build & open game frame to the user.
-        GameFrame gameFrame = new GameFrame(gameController);
+        GameFrame gameFrame = new GameFrame(gameController, imageCache);
         gameFrame.open();
         // register listeners.
         EventBus.subscribe(SnakeMoveEvent.class, new SnakeMoveListener(gameFrame));
